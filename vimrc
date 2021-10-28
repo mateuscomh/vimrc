@@ -87,3 +87,11 @@ au BufNewFile *.py set fileformat=unix
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 "nnoremap <ESC> :set hlsearch!<CR>
 
+inoremap " ""<left>
+inoremap ' ''<left>
+inoremap ( ()<left>
+inoremap [ []<left>
+inoremap { {}<left>
+inoremap {<CR> {<CR>}<ESC>O
+inoremap {;<CR> {<CR>};<ESC>O
+
