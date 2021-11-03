@@ -1,12 +1,22 @@
 "--------Instalador de plugins----------
 call plug#begin('~/.vim/plugged')
 
-    Plug 'vim-airline/vim-airline'
-    Plug 'scrooloose/syntastic'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+ Plug 'morhetz/gruvbox'
+ Plug 'ncm2/ncm2'
+ Plug 'vim-airline/vim-airline'
+ Plug 'scrooloose/syntastic'
+ Plug 'vim-airline/vim-airline-themes'
+ Plug 'junegunn/vim-easy-align'
+ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+ Plug 'sheerun/vim-polyglot'
+ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+ Plug 'junegunn/fzf.vim'
+
 call plug#end()
+
+"------------Tema do vim------------
+colorscheme gruvbox
+set background=dark
 
 "--------Cores de sintaxe--------
 syntax enable
@@ -20,7 +30,6 @@ let g:syntastic_enable_perl_checker = 1
 let g:syntastic_perl_checkers       = ['perl','podchecker']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -28,6 +37,9 @@ set statusline+=%*
 "--------Numero de linhas----------
 set number
 set relativenumber
+
+"----------Cache arquivos----------
+set hidden
 
 "--------Pesquisa recursiva--------
 set path+=**
@@ -38,18 +50,15 @@ set mouse=a
 "--------Definir titulo editor--------
 set title
 
-
 "--------Highlight em pesquisas--------
 set hlsearch
 set ignorecase
 
 "--------Codificação--------
 set encoding=utf-8
-
 set nocompatible
 set title
 set cursorline
-
 set ruler
 
 "--------81 colunas----------
@@ -84,14 +93,14 @@ au BufNewFile *.py set fileformat=unix
 "--------Remapear teclas----------
 "nnoremap ; :
 "nnoremap : ;
+
+"-----Add ControlD Nerdtree-----
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 "nnoremap <ESC> :set hlsearch!<CR>
 
-inoremap " ""<left>
-inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
+"--------Add ; com space no fim arquivo----
+let mapleader="\<space>"
+nnoremap <leader>; A;<esc>
 
+"-----Add ControlP para files-----
+nnoremap <c-p> :Files<cr>
