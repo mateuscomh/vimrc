@@ -1,8 +1,8 @@
 "--------Instalador de plugins----------
 call plug#begin('~/.vim/plugged')
 
+ Plug 'vim-scripts/AutoComplPop'
  Plug 'morhetz/gruvbox'
- Plug 'ncm2/ncm2'
  Plug 'vim-airline/vim-airline'
  Plug 'scrooloose/syntastic'
  Plug 'vim-airline/vim-airline-themes'
@@ -61,9 +61,14 @@ set title
 set cursorline
 set ruler
 
-"--------81 colunas----------
+"--------71 colunas----------
 highlight ColorColumn ctermbg=gray
-call matchadd('ColorColumn', '\%81v',100)
+call matchadd('ColorColumn', '\%71v',100)
+
+"-------Auto Complete--------
+set complete+=kspell,w,b,u,i,t
+set shortmess+=c
+set completeopt=menuone,longest
 
 "--------Caracteres Ocultos----------
 set listchars=tab:>˜,nbsp:_,trail:.
@@ -94,7 +99,7 @@ au BufNewFile *.py set fileformat=unix
 "nnoremap ; :
 "nnoremap : ;
 
-"-----Add ControlD Nerdtree-----
+nnoremap"-----Add ControlD Nerdtree-----
 nmap <silent> <C-D> :NERDTreeToggle<CR>
 "nnoremap <ESC> :set hlsearch!<CR>
 
@@ -103,4 +108,4 @@ let mapleader="\<space>"
 nnoremap <leader>; A;<esc>
 
 "-----Add ControlP para files-----
-nnoremap <c-p> :Files<cr>
+nnoremap <c-f> :Files<cr>
