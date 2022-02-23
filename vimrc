@@ -14,9 +14,12 @@ call plug#begin('~/.vim/plugged')
 
 call plug#end()
 
-"------------Tema do vim------------
+"---------Tema do vim---------
 colorscheme gruvbox
 set background=dark
+
+"----------Auto identacacao-------
+set ai
 
 "--------Cores de sintaxe--------
 syntax enable
